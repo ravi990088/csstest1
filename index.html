@@ -898,7 +898,32 @@ $("#msg").on("input", function () {
         }
         </script>
     <div id="google_translate_element"></div>
+<script>
 
+  $(document).ready(function() {
+    setTimeout(function(){ $( "#engLang" ).trigger( "click" ); }, 1000);
+    $('#selctlanguage').on('change', function (e) {
+      var getoptval = $(this).val();
+      if(getoptval=='Spanish'){
+          $( "#spanLang" ).trigger( "click" );
+      }else{
+          $( "#engLang" ).trigger( "click" );
+      }
+    });
+  });
+  function GoogleLanguageTranslatorInit(){
+    setCookie('googtrans', '/es',1);
+     new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,es',autoDisplay:false},'google_language_translator');
+     
+  }
+  function setCookie(key, value, expiry) {
+    var expires = new Date();
+    expires.setTime(expires.getTime() + (expiry * 24 * 60 * 60 * 1000));
+    document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+  }
+  </script>
+  <script type='text/javascript' src='//www.accu-dental.com/wp-content/plugins/google-language-translator/js/scripts.js?ver=6.0.8' id='scripts-js'></script>
+  <script type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=GoogleLanguageTranslatorInit' id='scripts-google-js'></script>
 
 </body>
 
